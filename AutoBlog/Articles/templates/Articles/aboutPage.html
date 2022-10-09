@@ -1,0 +1,41 @@
+{%  extends 'Articles/basePage.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="templatemo_right_column">
+    
+    <div id="templatemo_main">
+  
+        <h2>О разработчике</h2>
+
+
+            <div class="service_box">
+
+                <div class="left">
+                    <a href="#"><img src="{% static 'Articles/images/chart1.png' %}" alt="chart 1" /></a>
+                </div>
+          <div class="right">
+                    <p align="justify"> Беларусь, Гомель. Студент Белорусского государственного университета транспорта (БелГУТ). 4-ый курс (Конец учебы - 2023). Специальность: "Информационные системы и технологии". Программист. Бизнес-аналитик. Основной упор на backend разработку! </p>
+
+              </div>
+                <div class="cleaner"></div>
+                	<ol>
+                        <li>Python: Django; Flask; Selenium...</li>
+                  		<li>HTML, CSS, JS - базовый уровень</li>
+                        <li>Знание и понимание ООП, структур данных, алгоритмов </li>
+                        <li>Базы данных: MySQL, PostgreSQL, SQlite</li>
+                        <li>C/C++ на базовом уровне</li>
+                        <li>OS: Linux(Ubuntu), Windows XP-10, Android, iOS </li>
+                        <li>Бизнес-анализ (сбор требований, составление ТЗ) </li>
+                        <li>Английский: B1 </li>
+           	        </ol>
+                <div class="cleaner"></div>
+            </div>
+            
+
+    	</div> <!-- end of main -->
+ 	<div class="cleaner"></div>
+
+  </div>
+    <!-- end of right column -->
+{% endblock %}

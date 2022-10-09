@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>АвтоБлог</title>
+
+    <link href="{% static 'Articles/css/templatemo_style.css' %}" rel="stylesheet" type="text/css" />
+
+    <link href="{% static 'Articles/s3slider.css' %}" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+<div id="templatemo_wrapper">
+
+	<div id="templatemo_menu">
+
+        <ul>
+            {% if title = 'Главная' %}
+            <li><a href="#" class="current">Главная</a></li>
+            {% elif title != 'Главная' %}
+            <li><a href="#">Главная</a></li>
+            {% elif title = 'Добавить' %}
+            <li><a href="#" class="current">Добавить</a></li>
+            {% elif title != 'Добавить' %}
+                        <li><a href="#" class="current">Добавить</a></li>
+            <li><a href="#" class="current">Обратная связь</a></li>
+            <li><a href="#" class="current">Войти</a></li>
+        </ul>
+
+    </div> <!-- end of templatemo_menu -->
+
+    <div id="templatemo_left_column">
+
+        <div id="templatemo_header">
+
+            <div id="site_title">
+                <h1><a href="#" target="_parent">Авто<strong>Блог</strong></a></h1>
+            </div><!-- end of site_title -->
+
+        </div> <!-- end of header -->
+
+        <div id="templatemo_sidebar">
+
+            <div id="templatemo_rss">
+
+                <a href="https://github.com/igor-zaitsau" target="_blank">ПОСМОТРИ <br /><span>Мой GitHub:)</span></a>
+
+            </div>
+            {% if brandAuto %}
+            <h4>Статьи по марке авто:</h4>
+            {% for item in brandAuto %}
+            <ul class="templatemo_list">
+                <li><a href="/">{{ item.title }}</a></li>
+            </ul>
+            {% endfor %}
+            {% endif %}
+
+
+
+        </div> <!-- end of templatemo_sidebar -->
+
+    </div> <!-- end of templatemo_left_column -->
+
+    <div id="templatemo_right_column">
+
+     {% block content %}
+
+    {% endblock %}
+
+
+<div class="cleaner"></div>
+  </div>
+    <!-- end of templatemo_main -->
+  <div class="cleaner_h20"></div>
+
+  	<div id="templatemo_footer">
+        2022 | Belarus, Gomel | Igor Zaitsev | i.zaitsev.programmer@mail.ru
+    </div>
+
+    <div class="cleaner"></div>
+
+</div>
+</body>
+</html>
