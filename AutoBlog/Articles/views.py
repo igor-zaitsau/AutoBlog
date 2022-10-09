@@ -5,3 +5,6 @@ from django.views.generic import ListView, DetailView
 
 def MainPage(request):
     return HttpResponse('Hello dear')
+
+def AboutPage(request):
+    pass
