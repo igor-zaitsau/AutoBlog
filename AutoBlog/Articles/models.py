@@ -27,4 +27,4 @@ class ArticleModel(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('', kwargs={'slug': self.slug})
+        return reverse('ArticlePage', kwargs={'post_id': self.pk})

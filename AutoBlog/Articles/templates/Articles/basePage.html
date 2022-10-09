@@ -8,7 +8,7 @@
 
     <link href="{% static 'Articles/css/templatemo_style.css' %}" rel="stylesheet" type="text/css" />
 
-    <link href="{% static 'Articles/s3slider.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'Articles/css/s3slider.css' %}" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -18,16 +18,13 @@
 	<div id="templatemo_menu">
 
         <ul>
-            {% if title = 'Главная' %}
-            <li><a href="#" class="current">Главная</a></li>
-            {% elif title != 'Главная' %}
-            <li><a href="#">Главная</a></li>
-            {% elif title = 'Добавить' %}
-            <li><a href="#" class="current">Добавить</a></li>
-            {% elif title != 'Добавить' %}
-                        <li><a href="#" class="current">Добавить</a></li>
-            <li><a href="#" class="current">Обратная связь</a></li>
-            <li><a href="#" class="current">Войти</a></li>
+            <li><a href="{% url 'MainPage' %}" class="current">Главная</a></li>
+
+            <li><a href="{% url 'AddPage' %}">Добавить</a></li>
+
+            <li><a href="{% url 'FeedbackPage' %}">Обратная связь</a></li>
+            <li><a href="{% url 'AboutPage' %}">О нас</a></li>
+            <li><a href="#">Войти</a></li>
         </ul>
 
     </div> <!-- end of templatemo_menu -->
@@ -37,7 +34,7 @@
         <div id="templatemo_header">
 
             <div id="site_title">
-                <h1><a href="#" target="_parent">Авто<strong>Блог</strong></a></h1>
+                <h1><a href="{% url 'MainPage' %}" target="_parent">Авто<strong>Блог</strong></a></h1>
             </div><!-- end of site_title -->
 
         </div> <!-- end of header -->
