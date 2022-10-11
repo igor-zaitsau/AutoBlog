@@ -8,8 +8,8 @@
 
         <span class="comment"><a href="#">128</a></span>
             
-        <h2><a href="#">{{ em.title }}</a></h2>
-        {{ em.time_update }} | <strong>Author:</strong> John | <strong>Category:</strong> <a href="#">Freebies</a>
+        <h2><a href="{{ em.get_absolute_url }}">{{ em.title }}</a></h2>
+        <strong>Дата:</strong> {{ em.time_update }} | <strong>Автор:</strong> {{ em.author }} | <strong>Категория:</strong> <a href="#">{{ em.category }}</a>
         <img src="images/templatemo_image_01.jpg" alt="image 1" />
         <p>{{ em.content|linebreaks|truncatewords:50 }}</p>
         <a href="{{ em.get_absolute_url }}">Продолжить чтение...</a>

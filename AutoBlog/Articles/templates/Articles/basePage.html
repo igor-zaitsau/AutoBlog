@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>АвтоБлог</title>
@@ -19,9 +19,7 @@
 
         <ul>
             <li><a href="{% url 'MainPage' %}" class="current">Главная</a></li>
-
             <li><a href="{% url 'AddPage' %}">Добавить</a></li>
-
             <li><a href="{% url 'FeedbackPage' %}">Обратная связь</a></li>
             <li><a href="{% url 'AboutPage' %}">О нас</a></li>
             <li><a href="#">Войти</a></li>
@@ -46,14 +44,21 @@
                 <a href="https://github.com/igor-zaitsau" target="_blank">ПОСМОТРИ <br /><span>Мой GitHub:)</span></a>
 
             </div>
-            {% if brandAuto %}
+            {% if categories %}
             <h4>Статьи по марке авто:</h4>
-            {% for item in brandAuto %}
-            <ul class="templatemo_list">
-                <li><a href="/">{{ item.title }}</a></li>
-            </ul>
-            {% endfor %}
             {% endif %}
+            {% for item in categories %}
+            {% if item.pk == cat_selected %}
+            <ul class="templatemo_list">
+                <li><b>{{ item.title }}</b></li>
+            </ul>
+            {% else %}
+            <ul class="templatemo_list">
+                <li><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></li>
+            </ul>
+            {% endif %}
+            {% endfor %}
+
 
 
 
