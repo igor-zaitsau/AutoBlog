@@ -9,9 +9,10 @@
         <span class="comment"><a href="#">128</a></span>
             
         <h2><a href="{{ em.get_absolute_url }}">{{ em.title }}</a></h2>
-        <strong>Дата:</strong> {{ em.time_update }} | <strong>Автор:</strong> {{ em.author }} | <strong>Категория:</strong> <a href="#">{{ em.category }}</a>
-        <img src="images/templatemo_image_01.jpg" alt="image 1" />
-        <p>{{ em.content|linebreaks|truncatewords:50 }}</p>
+        <strong>Дата публикации:</strong> {{ em.time_create }} |  <strong>Марка:</strong> <a href="#">{{ em.category }}</a>
+        <p><strong>Автор статьи:</strong> {{ em.author }}</p>
+        <img src="{{ em.photo.url }}" alt="image" width="460" height="240"/>
+        <p>{{ em.content|linebreaks|truncatewords:35 }}</p>
         <a href="{{ em.get_absolute_url }}">Продолжить чтение...</a>
 
     </div>

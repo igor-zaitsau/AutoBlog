@@ -4,11 +4,18 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    {% if title %}
+    <title>{{ title }}</title>
+    {% elif post.title %}
+    <title>{{ post.title }}</title>
+    {% elif cat %}
+    <title>Категория: {{ cat }}</title>
+    {% else %}
     <title>АвтоБлог</title>
+    {% endif %}
 
     <link href="{% static 'Articles/css/templatemo_style.css' %}" rel="stylesheet" type="text/css" />
-
-    <link href="{% static 'Articles/css/s3slider.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'Articles/css/css_page.css' %}" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
@@ -18,10 +25,26 @@
 	<div id="templatemo_menu">
 
         <ul>
+            {% if title == 'Главная' %}
             <li><a href="{% url 'MainPage' %}" class="current">Главная</a></li>
+            {% else %}
+            <li><a href="{% url 'MainPage' %}">Главная</a></li>
+            {% endif %}
+            {% if title == 'Добавить' %}
+            <li><a href="{% url 'AddPage' %}" class="current">Добавить</a></li>
+            {% else %}
             <li><a href="{% url 'AddPage' %}">Добавить</a></li>
+            {% endif %}
+            {% if title == 'Обратная связь' %}
+            <li><a href="{% url 'FeedbackPage' %}" class="current">Обратная связь</a></li>
+            {% else %}
             <li><a href="{% url 'FeedbackPage' %}">Обратная связь</a></li>
+            {% endif %}
+            {% if title == 'О нас' %}
+            <li><a href="{% url 'AboutPage' %}" class="current">О нас</a></li>
+            {% else %}
             <li><a href="{% url 'AboutPage' %}">О нас</a></li>
+            {% endif %}
             <li><a href="#">Войти</a></li>
         </ul>
 

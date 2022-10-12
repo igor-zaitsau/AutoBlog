@@ -247,7 +247,7 @@ em { color: #5d6d1e; }
 	clear: both;
 	position: relative;
 	padding: 0 60px 10px 0;
-	margin: 40px 0;
+	margin-bottom: 10%;
 	background: url(templatemo_post_bottom.png) bottom left no-repeat;
 }
 

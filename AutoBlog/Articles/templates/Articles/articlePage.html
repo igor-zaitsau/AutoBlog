@@ -9,10 +9,9 @@
 
             <div class="post_section">
 
-                <span class="comment"><a href="fullpost.html">256</a></span>
+                <span class="comment"><a href="#">256</a></span>
                 <h2>{{ post.title }} </h2>
-                <strong>Дата:</strong> {{ post.time_update }} | <strong>Автор:</strong> {{ post.author }} | <strong>Категория:</strong> <a href="#">{{ post.category }}</a>
-                <a href="http://www.templatemo.com/page/1" target="_parent"><img src="images/templatemo_image_01.jpg" alt="image" /></a>
+                <img src="{{ post.photo.url }}" alt="image"  width="440" height="240"/>
               <p>{{ post.content|linebreaks }}</p>
                 
 		  </div>
