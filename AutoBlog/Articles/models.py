@@ -4,13 +4,13 @@ from django.urls import reverse
 
 class CategoryModel(models.Model):
     title = models.CharField(max_length=50, db_index=True, verbose_name='Название')
-    slug = models.SlugField(max_length=50, verbose_name='URL')
+    slug = models.SlugField(max_length=50, unique=True, verbose_name='URL')
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('CategoryPage', kwargs={'cat_id': self.pk})
+        return reverse('CategoryPage', kwargs={'post_slug': self.slug})
 
     class Meta:
         verbose_name = 'Категория'
@@ -25,14 +25,14 @@ class ArticleModel(models.Model):
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     time_update = models.DateTimeField(auto_now=True, verbose_name='Дата публикации')
     is_published = models.BooleanField(default=True, verbose_name='Публикация')
-    author = models.CharField(max_length=30, null=True, verbose_name='Автор')
-    category = models.ForeignKey(CategoryModel, on_delete=models.SET_NULL, null=True, verbose_name='Категория')
+    author = models.CharField(max_length=30, verbose_name='Автор')
+    category = models.ForeignKey(CategoryModel, on_delete=models.CASCADE, verbose_name='Категория')
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('ArticlePage', kwargs={'post_id': self.pk})
+        return reverse('ArticlePage', kwargs={'post_slug': self.slug})
 
     class Meta:
         verbose_name = 'Статья'

@@ -9,7 +9,7 @@
         <span class="comment"><a href="#">128</a></span>
             
         <h2><a href="{{ em.get_absolute_url }}">{{ em.title }}</a></h2>
-        <strong>Дата публикации:</strong> {{ em.time_create }} |  <strong>Марка:</strong> <a href="#">{{ em.category }}</a>
+        <strong>Дата публикации:</strong> {{ em.time_create }} |  <strong>Марка:</strong> <a href="{{ em.get_absolute_url }}">{{ em.category }}</a>
         <p><strong>Автор статьи:</strong> {{ em.author }}</p>
         <img src="{{ em.photo.url }}" alt="image" width="460" height="240"/>
         <p>{{ em.content|linebreaks|truncatewords:35 }}</p>

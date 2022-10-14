@@ -7,9 +7,9 @@
     {% if title %}
     <title>{{ title }}</title>
     {% elif post.title %}
-    <title>{{ post.title }}</title>
+    <title>Статья: {{ post.title }}</title>
     {% elif cat %}
-    <title>Категория: {{ cat }}</title>
+    <title>Категория: {{ cat.title }}</title>
     {% else %}
     <title>АвтоБлог</title>
     {% endif %}
@@ -71,7 +71,7 @@
             <h4>Статьи по марке авто:</h4>
             {% endif %}
             {% for item in categories %}
-            {% if item.pk == cat_selected %}
+            {% if item.slug == slug_selected %}
             <ul class="templatemo_list">
                 <li><b>{{ item.title }}</b></li>
             </ul>

@@ -16,20 +16,21 @@ def MainPage(request):
 
     return render(request, 'Articles/allArticles.html', context)
 
-def ArticlePage(request, post_id):
-    post = ArticleModel.objects.get(pk=post_id)
+def ArticlePage(request, post_slug):
+    post = ArticleModel.objects.get(slug=post_slug)
     categories = CategoryModel.objects.all()
     return render(request, 'Articles/articlePage.html', {'post': post, 'categories': categories})
 
 
-def CategoryPage(request, cat_id):
-    posts = ArticleModel.objects.filter(category_id=cat_id)
+def CategoryPage(request, post_slug):
+    posts = ArticleModel.objects.filter(category__slug=post_slug)
     categories = CategoryModel.objects.all()
+
 
     context = {
         'posts': posts,
         'categories': categories,
-        'cat_selected': cat_id
+        'slug_selected': post_slug
     }
 
     return render(request, 'Articles/allArticles.html', context)
